@@ -40,7 +40,8 @@ class LoginForm extends React.Component {
                 <Form.Field error={!!errors.email}>
                     <label htmlFor="email">Email</label>
                     <input 
-                        type="email" id="email" 
+                        type="email" 
+                        id="email" 
                         name="email" 
                         placeholder="example@example.com" 
                         value={data.email}
@@ -51,7 +52,8 @@ class LoginForm extends React.Component {
                 <Form.Field error={!!errors.password}>
                     <label htmlFor="email">Password</label>
                     <input 
-                        type="password" id="password" 
+                        type="password" 
+                        id="password" 
                         name="password" 
                         placeholder="Make it secure" 
                         value={data.pasword}
@@ -72,3 +74,29 @@ LoginForm.propTypes = {
 
 
 export default LoginForm;
+
+/*
+[e.target.name]: e.target.value : permet d'insérer dans data les valeurs du imput en se servant de son nom
+
+la valeur de data.email = valeur dans <input name="email" />
+*/
+
+// dans la fonction validate on peut ajouter autant de conditions d'erreurs que l'on veut
+
+/*
+error={!!errors.email} : met le champ email en rouge 
+imported from semantic ui
+*/
+
+/*
+{ errors.email && <InlineError text={errors.email} /> } : fonctionne comme un if sous cette forme
+
+si errors.email alors affiche l'erreur email (sous le champ en rouge)
+
+*/
+
+/*
+LoginForm.propTypes : s'assure que la fonction submit (ligne 25) soit obligatoire vérifiée
+
+
+*/

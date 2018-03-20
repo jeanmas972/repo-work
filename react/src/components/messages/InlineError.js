@@ -8,3 +8,9 @@ InlineError.propTypes = {
 };
 
 export default InlineError;
+
+/*
+InlineError.propTypes : s'assure que le text dans les champs soient bien des string 
+
+
+*/
