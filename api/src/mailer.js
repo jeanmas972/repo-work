@@ -1,3 +1,4 @@
+
 import nodemailer from "nodemailer";
 
 const from = '"Bookworm" <info@bookworm.com>';
@@ -14,33 +15,40 @@ function setup() {
 }
 
 export function sendConfirmationEmail(user) {
-  const tranport = setup();
+  const transport = setup();
+  const userConfirmation = user.generateConfirmationUrl();
   const email = {
     from,
     to: user.email,
     subject: "Welcome to Bookworm",
     text: `
     Welcome to Bookworm. Please, confirm your email.
-    ${user.generateConfirmationUrl()}
+    ${userConfirmation}
     `
   };
 
-  tranport.sendMail(email);
+  console.log(userConfirmation);
+
+  // transport.sendMail(email);
 }
 
+
 export function sendResetPasswordEmail(user) {
-  const tranport = setup();
+  const transport = setup();
+  const userReset = user.generateResetPasswordLink();
   const email = {
     from,
     to: user.email,
     subject: "Reset Password",
     text: `
     To reset password follow this link
-    ${user.generateResetPasswordLink()}
+    ${userReset}
     `
   };
 
-  tranport.sendMail(email);
+  console.log(userReset);
+
+  // transport.sendMail(email);
 }
 
 
